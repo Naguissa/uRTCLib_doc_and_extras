@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['day_70',['day',['../classuRTCLib.html#a669cd764254d89fbda9d0eba2040c8ed',1,'uRTCLib']]],
-  ['dayofweek_71',['dayOfWeek',['../classuRTCLib.html#ab37deecb323804e8c97eda2d6c5b711e',1,'uRTCLib']]]
+  ['day_77',['day',['../classuRTCLib.html#a669cd764254d89fbda9d0eba2040c8ed',1,'uRTCLib']]],
+  ['dayofweek_78',['dayOfWeek',['../classuRTCLib.html#ab37deecb323804e8c97eda2d6c5b711e',1,'uRTCLib']]]
 ];
