@@ -131,6 +131,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:ae1744a3e80339751c744928ef31f9b58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuRTCLib.html#ae1744a3e80339751c744928ef31f9b58">lostPowerClear</a> ()</td></tr>
 <tr class="memdesc:ae1744a3e80339751c744928ef31f9b58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears lost power VBAT staus.  <a href="classuRTCLib.html#ae1744a3e80339751c744928ef31f9b58">More...</a><br /></td></tr>
 <tr class="separator:ae1744a3e80339751c744928ef31f9b58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a992ac65e9b3fd6fc654a86a1633e4902"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuRTCLib.html#a992ac65e9b3fd6fc654a86a1633e4902">enableBattery</a> ()</td></tr>
+<tr class="memdesc:a992ac65e9b3fd6fc654a86a1633e4902"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable VBAT operation when VCC power is lost.  <a href="classuRTCLib.html#a992ac65e9b3fd6fc654a86a1633e4902">More...</a><br /></td></tr>
+<tr class="separator:a992ac65e9b3fd6fc654a86a1633e4902"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed6faa670c43fdab8b3d23851d38931d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuRTCLib.html#aed6faa670c43fdab8b3d23851d38931d">disableBattery</a> ()</td></tr>
+<tr class="memdesc:aed6faa670c43fdab8b3d23851d38931d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable VBAT operation when VCC power is lost.  <a href="classuRTCLib.html#aed6faa670c43fdab8b3d23851d38931d">More...</a><br /></td></tr>
+<tr class="separator:aed6faa670c43fdab8b3d23851d38931d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f2565ec6197c27b2281365f2ca0c566"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuRTCLib.html#a1f2565ec6197c27b2281365f2ca0c566">alarmSet</a> (const uint8_t, const uint8_t, const uint8_t, const uint8_t, const uint8_t)</td></tr>
 <tr class="memdesc:a1f2565ec6197c27b2281365f2ca0c566"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets any alarm.  <a href="classuRTCLib.html#a1f2565ec6197c27b2281365f2ca0c566">More...</a><br /></td></tr>
 <tr class="separator:a1f2565ec6197c27b2281365f2ca0c566"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -179,7 +185,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <li>Alarms (1 and 2) for DS3231 and DS3232</li>
 <li>Power failure check and clear</li>
 </ul>
-<p>See uEEPROMLib for EEPROM support, <a href="https://github.com/Naguissa/uEEPROMLib">https://github.com/Naguissa/uEEPROMLib</a> </p>
+<p>See uEEPROMLib for EEPROM support, <a href="https://github.com/Naguissa/uEEPROMLib">https://github.com/Naguissa/uEEPROMLib</a></p>
+<p>Note: For AtTiny you need TinyWireM library from Adafruit installed (available on library manager). </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aea4c4064eea43bef31c69462945d237a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea4c4064eea43bef31c69462945d237a">&#9670;&nbsp;</a></span>uRTCLib() <span class="overload">[1/2]</span></h2>
@@ -605,6 +612,49 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <li><a class="el" href="uRTCLib_8h.html#a47bef4fa2db63c2c54eb24c92d39f002" title="Week day definition, [Sun..Sat] as [1..7]. Saturday.">URTCLIB_WEEKDAY_SATURDAY</a> </li>
 </ul>
 </dd></dl>
+
+</div>
+</div>
+<a id="aed6faa670c43fdab8b3d23851d38931d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed6faa670c43fdab8b3d23851d38931d">&#9670;&nbsp;</a></span>disableBattery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool uRTCLib::disableBattery </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Disable VBAT operation when VCC power is lost. </p>
+<dl class="section return"><dt>Returns</dt><dd>True on success </dd></dl>
+
+</div>
+</div>
+<a id="a992ac65e9b3fd6fc654a86a1633e4902"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a992ac65e9b3fd6fc654a86a1633e4902">&#9670;&nbsp;</a></span>enableBattery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool uRTCLib::enableBattery </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable VBAT operation when VCC power is lost. </p>
+<p>DS3231/DS3232 should enable the battery by default on first power-up using VCC, however this sometimes won't happen automatically, and therefore the Control Register needs to be forcefully overwritten to set EOSC to 0. The devices are usually shipped from China with EOSC set to 1 to save battery (even though they come with no battery included).</p>
+<p>Cause of frustration for a lot of first time users of the device. i.e. Time is lost even though battery present.</p>
+<p>Reference: <a href="https://forum.arduino.cc/index.php?topic=586520.msg3990086#msg3990086">https://forum.arduino.cc/index.php?topic=586520.msg3990086#msg3990086</a></p>
+<dl class="section return"><dt>Returns</dt><dd>True on success </dd></dl>
 
 </div>
 </div>
@@ -1042,7 +1092,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 
 <p>Returns actual temperature. </p>
-<p>Temperature is returned as degress * 100; i.e.: 3050 is 30.50º</p>
+<p>Temperature is returned as degrees * 100; i.e.: 3050 is 30.50º</p>
 <p>WARNING: DS1307 has no temperature register, so it always returns <a class="el" href="uRTCLib_8h.html#a3684770785500305bd9d1e41fea70c53" title="Temperarure read error indicator return value.">URTCLIB_TEMP_ERROR</a></p>
 <dl class="section return"><dt>Returns</dt><dd>Current stored temperature </dd></dl>
 

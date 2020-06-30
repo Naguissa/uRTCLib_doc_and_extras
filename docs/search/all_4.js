@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['minute_13',['minute',['../classuRTCLib.html#af1c38eaa16275a0e48ffe17ea25e236f',1,'uRTCLib']]],
-  ['model_14',['model',['../classuRTCLib.html#af85791c112c20a96d104d3c0e9fba415',1,'uRTCLib']]],
-  ['month_15',['month',['../classuRTCLib.html#a2c6adae52f0a7dce90c9e76a5ffd89f9',1,'uRTCLib']]]
+  ['lostpower_13',['lostPower',['../classuRTCLib.html#a6a4fe72b0cf169947493fd75135e43f4',1,'uRTCLib']]],
+  ['lostpowerclear_14',['lostPowerClear',['../classuRTCLib.html#ae1744a3e80339751c744928ef31f9b58',1,'uRTCLib']]]
 ];

@@ -71,234 +71,247 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="uRTCLib_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#ifndef URTCLIB</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a7807a1d4f9a7aa1898f0110dea7a3742">   30</a></span>&#160;<span class="preprocessor">    #define URTCLIB</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">    #include &quot;Arduino.h&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">    #include &quot;Wire.h&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a15dab9b3b1d045b91ff1119cb3c9eee1">   39</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ADDRESS 0x68</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">    /************   MODELS ***********/</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a511eecd1d25a26be54ec43959d596392">   45</a></span>&#160;<span class="preprocessor">    #define URTCLIB_MODEL_DS1307 1</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a1872a2b4ec9f0f38be9cd8a3e7ee5d62">   49</a></span>&#160;<span class="preprocessor">    #define URTCLIB_MODEL_DS3231 2</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a443a092bab3baf40886923a58ac9ca91">   53</a></span>&#160;<span class="preprocessor">    #define URTCLIB_MODEL_DS3232 3</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">    /************   WEEK DAYS ***********/</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a9fa4689ef453aa71f8b0f30c506eab73">   60</a></span>&#160;<span class="preprocessor">    #define URTCLIB_WEEKDAY_SUNDAY 1</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#ifndef URTCLIB</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a7807a1d4f9a7aa1898f0110dea7a3742">   33</a></span>&#160;<span class="preprocessor">    #define URTCLIB</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">    #include &quot;Arduino.h&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">    #ifndef URTCLIB_WIRE</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">        #if defined(ARDUINO_attiny) || defined(ARDUINO_AVR_ATTINYX4) || defined(ARDUINO_AVR_ATTINYX5) || defined(ARDUINO_AVR_ATTINYX7) || defined(ARDUINO_AVR_ATTINYX8) || defined(ARDUINO_AVR_ATTINYX61) || defined(ARDUINO_AVR_ATTINY43) || defined(ARDUINO_AVR_ATTINY828) || defined(ARDUINO_AVR_ATTINY1634) || defined(ARDUINO_AVR_ATTINYX313)</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">            #include &lt;TinyWireM.h&gt;</span>                  <span class="comment">// I2C Master lib for ATTinys which use USI</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">            #define URTCLIB_WIRE TinyWireM</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">        #else</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">            #include &lt;Wire.h&gt;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">            #define URTCLIB_WIRE Wire</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">        #endif</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a15dab9b3b1d045b91ff1119cb3c9eee1">   50</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ADDRESS 0x68</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">    /************   MODELS ***********/</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a511eecd1d25a26be54ec43959d596392">   56</a></span>&#160;<span class="preprocessor">    #define URTCLIB_MODEL_DS1307 1</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a1872a2b4ec9f0f38be9cd8a3e7ee5d62">   60</a></span>&#160;<span class="preprocessor">    #define URTCLIB_MODEL_DS3231 2</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#aefe244b22e6aaa214b13f3f4ea0951ee">   64</a></span>&#160;<span class="preprocessor">    #define URTCLIB_WEEKDAY_MONDAY 2</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a443a092bab3baf40886923a58ac9ca91">   64</a></span>&#160;<span class="preprocessor">    #define URTCLIB_MODEL_DS3232 3</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a3493aac6f6ac557fff900fb7eb4465ab">   68</a></span>&#160;<span class="preprocessor">    #define URTCLIB_WEEKDAY_TUESDAY 3</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#afa031238d0e8a7893654634aec262519">   72</a></span>&#160;<span class="preprocessor">    #define URTCLIB_WEEKDAY_WEDNESDAY 4</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a7969db978101e42c67263eba6fd7127d">   76</a></span>&#160;<span class="preprocessor">    #define URTCLIB_WEEKDAY_THURSDAY 5</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#ab40d764024ed0d4bf0abc3bae5e2f8d5">   80</a></span>&#160;<span class="preprocessor">    #define URTCLIB_WEEKDAY_FRIDAY 6</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a47bef4fa2db63c2c54eb24c92d39f002">   84</a></span>&#160;<span class="preprocessor">    #define URTCLIB_WEEKDAY_SATURDAY 7</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">    /************   ALARM SELECTION: ***********/</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">//Note: Not valid for DS1307!</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a8ac5f9b8924faa7c9b1fd1ff6c8a51e9">  105</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_1_NONE 0b00000000</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a341fa3e12a7215c3350747e3e6bcb7ae">  110</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_1_ALL_S 0b00101111</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a2b08337b406681a4b5f9f770c850a16a">  115</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_1_FIXED_S 0b00101110</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a6af64e24487c6732e58a225f087f1f9e">  120</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_1_FIXED_MS 0b00101100</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a91745b9f888650c58b5d6b7ceade886c">  125</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_1_FIXED_HMS 0b00101000</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a69db5df003c078f8a9685d6bfc6f0d1e">  130</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_1_FIXED_DHMS 0b00100000</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a6204c8c8ade5add41eec22d7ae17af74">  135</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_1_FIXED_DOWHMS 0b00110000</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#ab8b0414eb04905b5be9d4cc60f9ff3cf">  151</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_2_NONE 0b10000000</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a356c52a246b680748d27a481b199ba14">  156</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_2_ALL_M 0b10101110</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
-<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#afce788ef0a6553746dacac88a6d31171">  161</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_2_FIXED_M 0b10101100</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#aeb678ecf522c899cfd78c62561abaed3">  166</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_2_FIXED_HM 0b10101000</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
-<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#af783820d7187e0497feaf292040aeadf">  171</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_2_FIXED_DHM 0b10100000</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
-<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#ab9168a1af40d845678e6cacbb0868234">  176</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_2_FIXED_DOWHM 0b10110000</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">    /************   WEEK DAYS ***********/</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a9fa4689ef453aa71f8b0f30c506eab73">   71</a></span>&#160;<span class="preprocessor">    #define URTCLIB_WEEKDAY_SUNDAY 1</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#aefe244b22e6aaa214b13f3f4ea0951ee">   75</a></span>&#160;<span class="preprocessor">    #define URTCLIB_WEEKDAY_MONDAY 2</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a3493aac6f6ac557fff900fb7eb4465ab">   79</a></span>&#160;<span class="preprocessor">    #define URTCLIB_WEEKDAY_TUESDAY 3</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#afa031238d0e8a7893654634aec262519">   83</a></span>&#160;<span class="preprocessor">    #define URTCLIB_WEEKDAY_WEDNESDAY 4</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a7969db978101e42c67263eba6fd7127d">   87</a></span>&#160;<span class="preprocessor">    #define URTCLIB_WEEKDAY_THURSDAY 5</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#ab40d764024ed0d4bf0abc3bae5e2f8d5">   91</a></span>&#160;<span class="preprocessor">    #define URTCLIB_WEEKDAY_FRIDAY 6</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a47bef4fa2db63c2c54eb24c92d39f002">   95</a></span>&#160;<span class="preprocessor">    #define URTCLIB_WEEKDAY_SATURDAY 7</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">    /************   ALARM SELECTION: ***********/</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">//Note: Not valid for DS1307!</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a8ac5f9b8924faa7c9b1fd1ff6c8a51e9">  116</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_1_NONE 0b00000000</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a341fa3e12a7215c3350747e3e6bcb7ae">  121</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_1_ALL_S 0b00101111</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a2b08337b406681a4b5f9f770c850a16a">  126</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_1_FIXED_S 0b00101110</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a6af64e24487c6732e58a225f087f1f9e">  131</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_1_FIXED_MS 0b00101100</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a91745b9f888650c58b5d6b7ceade886c">  136</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_1_FIXED_HMS 0b00101000</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a69db5df003c078f8a9685d6bfc6f0d1e">  141</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_1_FIXED_DHMS 0b00100000</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a6204c8c8ade5add41eec22d7ae17af74">  146</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_1_FIXED_DOWHMS 0b00110000</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#ab8b0414eb04905b5be9d4cc60f9ff3cf">  162</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_2_NONE 0b10000000</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a356c52a246b680748d27a481b199ba14">  167</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_2_ALL_M 0b10101110</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#afce788ef0a6553746dacac88a6d31171">  172</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_2_FIXED_M 0b10101100</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#aeb678ecf522c899cfd78c62561abaed3">  177</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_2_FIXED_HM 0b10101000</span></div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
-<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#ac570da7fa7e585358830d87ada1d5732">  182</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_1 URTCLIB_ALARM_TYPE_1_NONE</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#af783820d7187e0497feaf292040aeadf">  182</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_2_FIXED_DHM 0b10100000</span></div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
-<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a22a0eeed0026d0b3f707382c759d0d01">  187</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_2 URTCLIB_ALARM_TYPE_2_NONE</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#ab9168a1af40d845678e6cacbb0868234">  187</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_TYPE_2_FIXED_DOWHM 0b10110000</span></div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment">    /************   SQWG SELECTION: ***********/</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
-<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a0c7a165aafa911b32a7721f35fee308a">  197</a></span>&#160;<span class="preprocessor">    #define URTCLIB_SQWG_OFF_0 0b11111111</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
-<div class="line"><a name="l00202"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a5c1d19a64fdf1fd626aac085b29d3b71">  202</a></span>&#160;<span class="preprocessor">    #define URTCLIB_SQWG_OFF_1 0b11111110</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
-<div class="line"><a name="l00207"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#af819fc9146345329518cc303dd9398d0">  207</a></span>&#160;<span class="preprocessor">    #define URTCLIB_SQWG_1H 0b00000000</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
-<div class="line"><a name="l00214"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a706427db63768067eea81875d9a2cdd2">  214</a></span>&#160;<span class="preprocessor">    #define URTCLIB_SQWG_1024H 0b00001000</span></div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
-<div class="line"><a name="l00219"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#aeeae645ef78fa85f634824eefc93e05f">  219</a></span>&#160;<span class="preprocessor">    #define URTCLIB_SQWG_4096H 0b00010000</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
-<div class="line"><a name="l00224"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#ac647bb30080c38597b0fa8c08d6f5017">  224</a></span>&#160;<span class="preprocessor">    #define URTCLIB_SQWG_8192H 0b00011000</span></div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
-<div class="line"><a name="l00231"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a003402e72bd860dda4f38e8a17c88676">  231</a></span>&#160;<span class="preprocessor">    #define URTCLIB_SQWG_32768H 0b00000011</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="comment">    /************   TEMPERATURE ***********/</span></div>
-<div class="line"><a name="l00240"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a3684770785500305bd9d1e41fea70c53">  240</a></span>&#160;<span class="preprocessor">    #define URTCLIB_TEMP_ERROR 32767</span></div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="comment">    /************   MISC  ***********/</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#ac570da7fa7e585358830d87ada1d5732">  193</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_1 URTCLIB_ALARM_TYPE_1_NONE</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a22a0eeed0026d0b3f707382c759d0d01">  198</a></span>&#160;<span class="preprocessor">    #define URTCLIB_ALARM_2 URTCLIB_ALARM_TYPE_2_NONE</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="comment">    /************   SQWG SELECTION: ***********/</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a0c7a165aafa911b32a7721f35fee308a">  208</a></span>&#160;<span class="preprocessor">    #define URTCLIB_SQWG_OFF_0 0b11111111</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00213"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a5c1d19a64fdf1fd626aac085b29d3b71">  213</a></span>&#160;<span class="preprocessor">    #define URTCLIB_SQWG_OFF_1 0b11111110</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00218"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#af819fc9146345329518cc303dd9398d0">  218</a></span>&#160;<span class="preprocessor">    #define URTCLIB_SQWG_1H 0b00000000</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
+<div class="line"><a name="l00225"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a706427db63768067eea81875d9a2cdd2">  225</a></span>&#160;<span class="preprocessor">    #define URTCLIB_SQWG_1024H 0b00001000</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00230"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#aeeae645ef78fa85f634824eefc93e05f">  230</a></span>&#160;<span class="preprocessor">    #define URTCLIB_SQWG_4096H 0b00010000</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
+<div class="line"><a name="l00235"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#ac647bb30080c38597b0fa8c08d6f5017">  235</a></span>&#160;<span class="preprocessor">    #define URTCLIB_SQWG_8192H 0b00011000</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
+<div class="line"><a name="l00242"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a003402e72bd860dda4f38e8a17c88676">  242</a></span>&#160;<span class="preprocessor">    #define URTCLIB_SQWG_32768H 0b00000011</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
-<div class="line"><a name="l00249"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#ab620475804ea276115a610c42c2dbd05">  249</a></span>&#160;<span class="preprocessor">    #define uRTCLIB_decToBcd(val) ((uint8_t) ((val / 10 * 16) + (val % 10)))</span></div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
-<div class="line"><a name="l00254"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#ab1efc1cb32924f3f8ddfe39b578a54ab">  254</a></span>&#160;<span class="preprocessor">    #define uRTCLIB_bcdToDec(val) ((uint8_t) ((val / 16 * 10) + (val % 16)))</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="comment">    /************   TEMPERATURE ***********/</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#a3684770785500305bd9d1e41fea70c53">  251</a></span>&#160;<span class="preprocessor">    #define URTCLIB_TEMP_ERROR 32767</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; </div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="comment">    /************   MISC  ***********/</span></div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="comment">// ESP yield function (ESP32 has no need for that on dual core, but it has on single core version)</span></div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="preprocessor">    #if ARDUINO_ARCH_ESP8266</span></div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="preprocessor">        #define uRTCLIB_YIELD yield();</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="preprocessor">    #else</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="preprocessor">        #if ARDUINO_ARCH_ESP32</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
+<div class="line"><a name="l00260"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#ab620475804ea276115a610c42c2dbd05">  260</a></span>&#160;<span class="preprocessor">    #define uRTCLIB_decToBcd(val) ((uint8_t) ((val / 10 * 16) + (val % 10)))</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
+<div class="line"><a name="l00265"></a><span class="lineno"><a class="line" href="uRTCLib_8h.html#ab1efc1cb32924f3f8ddfe39b578a54ab">  265</a></span>&#160;<span class="preprocessor">    #define uRTCLIB_bcdToDec(val) ((uint8_t) ((val / 16 * 10) + (val % 16)))</span></div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="preprocessor">            #define uRTCLIB_YIELD yield();</span></div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="preprocessor">        #else</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="preprocessor">            #define uRTCLIB_YIELD</span></div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="preprocessor">        #endif</span></div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
-<div class="line"><a name="l00277"></a><span class="lineno"><a class="line" href="classuRTCLib.html">  277</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classuRTCLib.html">uRTCLib</a> {</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="comment">            /******* Constructors *******/</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            <a class="code" href="classuRTCLib.html#a9188d72902c1d153961fa0b2a3b9a98b">uRTCLib</a>();</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;            <a class="code" href="classuRTCLib.html#a9188d72902c1d153961fa0b2a3b9a98b">uRTCLib</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>);</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;            <a class="code" href="classuRTCLib.html#a9188d72902c1d153961fa0b2a3b9a98b">uRTCLib</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>, <span class="keyword">const</span> uint8_t);</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; </div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="comment">            /******* RTC functions ********/</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classuRTCLib.html#a8f4aee6683c23572e719a94479e13541">refresh</a>();</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#a08f27cc309e8ac351f147a43a5b914e7">second</a>();</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#af1c38eaa16275a0e48ffe17ea25e236f">minute</a>();</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#ab4131c1930333f1b75aa8bba7fb8ef41">hour</a>();</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#a669cd764254d89fbda9d0eba2040c8ed">day</a>();</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#a2c6adae52f0a7dce90c9e76a5ffd89f9">month</a>();</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#af181a337b5ed0a15afa900c80c160586">year</a>();</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#ab37deecb323804e8c97eda2d6c5b711e">dayOfWeek</a>();</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;            int16_t <a class="code" href="classuRTCLib.html#a2e9e2c25071eda27472bddf38bf84220">temp</a>();</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classuRTCLib.html#a85fe897310af5e33f986a54f2e3e32a5">set</a>(<span class="keyword">const</span> uint8_t, <span class="keyword">const</span> uint8_t, <span class="keyword">const</span> uint8_t, <span class="keyword">const</span> uint8_t, <span class="keyword">const</span> uint8_t, <span class="keyword">const</span> uint8_t, <span class="keyword">const</span> uint8_t);</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classuRTCLib.html#a0bc90d755bf101de52a0b904c76c4c95">set_rtc_address</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>);</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classuRTCLib.html#a0f5febc963ca4ffd6f5c72560a83d2c2">set_model</a>(<span class="keyword">const</span> uint8_t);</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#af85791c112c20a96d104d3c0e9fba415">model</a>();</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="comment">            /******* Lost power ********/</span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classuRTCLib.html#a6a4fe72b0cf169947493fd75135e43f4">lostPower</a>();</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classuRTCLib.html#ae1744a3e80339751c744928ef31f9b58">lostPowerClear</a>();</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment">            /******** Alarms ************/</span></div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classuRTCLib.html#a1f2565ec6197c27b2281365f2ca0c566">alarmSet</a>(<span class="keyword">const</span> uint8_t, <span class="keyword">const</span> uint8_t, <span class="keyword">const</span> uint8_t, <span class="keyword">const</span> uint8_t, <span class="keyword">const</span> uint8_t); <span class="comment">// Seconds will be ignored on Alarm 2</span></div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classuRTCLib.html#a79b15b0adbfed33caee00e0ec4e45898">alarmDisable</a>(<span class="keyword">const</span> uint8_t);</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classuRTCLib.html#a1832bbb5322fbe2895c14132e559e03a">alarmClearFlag</a>(<span class="keyword">const</span> uint8_t);</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#a8972999ee5a878d562f37c21bf3b2e4d">alarmMode</a>(<span class="keyword">const</span> uint8_t);</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#aea0103b443e36f43b56c36075f07f55d">alarmSecond</a>(<span class="keyword">const</span> uint8_t);</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#ad51b66f85c8010fc736696c54358e988">alarmMinute</a>(<span class="keyword">const</span> uint8_t);</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#a69e601157f3e8326d9c6b9b9a195b44d">alarmHour</a>(<span class="keyword">const</span> uint8_t);</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#a5af1cc47e8dbc936e7bc7111c81e9d26">alarmDayDow</a>(<span class="keyword">const</span> uint8_t);</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; </div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="comment">            /*********** SQWG ************/</span></div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#aac4f19eca28bb842bcde486e237bbdbf">sqwgMode</a>();</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classuRTCLib.html#aea2bfdbdbe0e33f5195d80e4a0278647">sqwgSetMode</a>(<span class="keyword">const</span> uint8_t);</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="comment">// ESP yield function (ESP32 has no need for that on dual core, but it has on single core version)</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="preprocessor">    #if ARDUINO_ARCH_ESP8266</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160; </div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="preprocessor">        #define uRTCLIB_YIELD yield();</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="preprocessor">    #else</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="preprocessor">        #if ARDUINO_ARCH_ESP32</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="preprocessor">            #define uRTCLIB_YIELD yield();</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="preprocessor">        #else</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="preprocessor">            #define uRTCLIB_YIELD</span></div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="preprocessor">        #endif</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
+<div class="line"><a name="l00288"></a><span class="lineno"><a class="line" href="classuRTCLib.html">  288</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classuRTCLib.html">uRTCLib</a> {</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="comment">            /******* Constructors *******/</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;            <a class="code" href="classuRTCLib.html#a9188d72902c1d153961fa0b2a3b9a98b">uRTCLib</a>();</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;            <a class="code" href="classuRTCLib.html#a9188d72902c1d153961fa0b2a3b9a98b">uRTCLib</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;            <a class="code" href="classuRTCLib.html#a9188d72902c1d153961fa0b2a3b9a98b">uRTCLib</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>, <span class="keyword">const</span> uint8_t);</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; </div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="comment">            /******* RTC functions ********/</span></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classuRTCLib.html#a8f4aee6683c23572e719a94479e13541">refresh</a>();</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#a08f27cc309e8ac351f147a43a5b914e7">second</a>();</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#af1c38eaa16275a0e48ffe17ea25e236f">minute</a>();</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#ab4131c1930333f1b75aa8bba7fb8ef41">hour</a>();</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#a669cd764254d89fbda9d0eba2040c8ed">day</a>();</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#a2c6adae52f0a7dce90c9e76a5ffd89f9">month</a>();</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#af181a337b5ed0a15afa900c80c160586">year</a>();</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#ab37deecb323804e8c97eda2d6c5b711e">dayOfWeek</a>();</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;            int16_t <a class="code" href="classuRTCLib.html#a2e9e2c25071eda27472bddf38bf84220">temp</a>();</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classuRTCLib.html#a85fe897310af5e33f986a54f2e3e32a5">set</a>(<span class="keyword">const</span> uint8_t, <span class="keyword">const</span> uint8_t, <span class="keyword">const</span> uint8_t, <span class="keyword">const</span> uint8_t, <span class="keyword">const</span> uint8_t, <span class="keyword">const</span> uint8_t, <span class="keyword">const</span> uint8_t);</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classuRTCLib.html#a0bc90d755bf101de52a0b904c76c4c95">set_rtc_address</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classuRTCLib.html#a0f5febc963ca4ffd6f5c72560a83d2c2">set_model</a>(<span class="keyword">const</span> uint8_t);</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#af85791c112c20a96d104d3c0e9fba415">model</a>();</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160; </div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="comment">            /******* Power ********/</span></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classuRTCLib.html#a6a4fe72b0cf169947493fd75135e43f4">lostPower</a>();</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classuRTCLib.html#ae1744a3e80339751c744928ef31f9b58">lostPowerClear</a>();</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classuRTCLib.html#a992ac65e9b3fd6fc654a86a1633e4902">enableBattery</a>(); <span class="comment">// Only DS3231 and DS3232.</span></div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classuRTCLib.html#aed6faa670c43fdab8b3d23851d38931d">disableBattery</a>();</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160; </div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="comment">            /************ RAM *************/</span></div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;            <span class="comment">// Only DS1307 and DS3232.</span></div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;            <span class="comment">// DS1307: Addresses 08h to 3Fh so we offset 08h positions and limit to 38h as maximum address</span></div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;            <span class="comment">// DS3232: Addresses 14h to FFh so we offset 14h positions and limit to EBh as maximum address</span></div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;            <span class="keywordtype">byte</span> <a class="code" href="classuRTCLib.html#af8eea2501d6b82726ce6226529c82a89">ramRead</a>(<span class="keyword">const</span> uint8_t);</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classuRTCLib.html#a6f45e764cf230086760482d671ddf142">ramWrite</a>(<span class="keyword">const</span> uint8_t, <span class="keywordtype">byte</span>);</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;            <span class="comment">// Address</span></div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;            <span class="keywordtype">int</span> _rtc_address = <a class="code" href="uRTCLib_8h.html#a15dab9b3b1d045b91ff1119cb3c9eee1">URTCLIB_ADDRESS</a>;</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;            <span class="comment">// RTC rad data</span></div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;            uint8_t _second = 0;</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;            uint8_t _minute = 0;</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;            uint8_t _hour = 0;</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;            uint8_t _day = 0;</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;            uint8_t _month = 0;</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;            uint8_t _year = 0;</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;            uint8_t _dayOfWeek = 0;</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;            int16_t _temp = 9999;</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160; </div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;            <span class="comment">// Model, for alarms and RAM</span></div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;            uint8_t _model = <a class="code" href="uRTCLib_8h.html#a443a092bab3baf40886923a58ac9ca91">URTCLIB_MODEL_DS3232</a>;</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160; </div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;            <span class="comment">// Alarms:</span></div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;            uint8_t _a1_mode = <a class="code" href="uRTCLib_8h.html#a8ac5f9b8924faa7c9b1fd1ff6c8a51e9">URTCLIB_ALARM_TYPE_1_NONE</a>;</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;            uint8_t _a1_second = 0;</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;            uint8_t _a1_minute = 0;</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;            uint8_t _a1_hour = 0;</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;            uint8_t _a1_day_dow = 0;</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160; </div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;            uint8_t _a2_mode = <a class="code" href="uRTCLib_8h.html#ab8b0414eb04905b5be9d4cc60f9ff3cf">URTCLIB_ALARM_TYPE_2_NONE</a>;</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;            uint8_t _a2_minute = 0;</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;            uint8_t _a2_hour = 0;</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;            uint8_t _a2_day_dow = 0;</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160; </div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;            <span class="comment">// SQWG</span></div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;            uint8_t _sqwg_mode = <a class="code" href="uRTCLib_8h.html#a5c1d19a64fdf1fd626aac085b29d3b71">URTCLIB_SQWG_OFF_1</a>;</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160; </div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    };</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160; </div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160; </div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="comment">            /******** Alarms ************/</span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classuRTCLib.html#a1f2565ec6197c27b2281365f2ca0c566">alarmSet</a>(<span class="keyword">const</span> uint8_t, <span class="keyword">const</span> uint8_t, <span class="keyword">const</span> uint8_t, <span class="keyword">const</span> uint8_t, <span class="keyword">const</span> uint8_t); <span class="comment">// Seconds will be ignored on Alarm 2</span></div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classuRTCLib.html#a79b15b0adbfed33caee00e0ec4e45898">alarmDisable</a>(<span class="keyword">const</span> uint8_t);</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classuRTCLib.html#a1832bbb5322fbe2895c14132e559e03a">alarmClearFlag</a>(<span class="keyword">const</span> uint8_t);</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#a8972999ee5a878d562f37c21bf3b2e4d">alarmMode</a>(<span class="keyword">const</span> uint8_t);</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#aea0103b443e36f43b56c36075f07f55d">alarmSecond</a>(<span class="keyword">const</span> uint8_t);</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#ad51b66f85c8010fc736696c54358e988">alarmMinute</a>(<span class="keyword">const</span> uint8_t);</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#a69e601157f3e8326d9c6b9b9a195b44d">alarmHour</a>(<span class="keyword">const</span> uint8_t);</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#a5af1cc47e8dbc936e7bc7111c81e9d26">alarmDayDow</a>(<span class="keyword">const</span> uint8_t);</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; </div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="comment">            /*********** SQWG ************/</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;            uint8_t <a class="code" href="classuRTCLib.html#aac4f19eca28bb842bcde486e237bbdbf">sqwgMode</a>();</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classuRTCLib.html#aea2bfdbdbe0e33f5195d80e4a0278647">sqwgSetMode</a>(<span class="keyword">const</span> uint8_t);</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160; </div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160; </div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="comment">            /************ RAM *************/</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;            <span class="comment">// Only DS1307 and DS3232.</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;            <span class="comment">// DS1307: Addresses 08h to 3Fh so we offset 08h positions and limit to 38h as maximum address</span></div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;            <span class="comment">// DS3232: Addresses 14h to FFh so we offset 14h positions and limit to EBh as maximum address</span></div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;            <span class="keywordtype">byte</span> <a class="code" href="classuRTCLib.html#af8eea2501d6b82726ce6226529c82a89">ramRead</a>(<span class="keyword">const</span> uint8_t);</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classuRTCLib.html#a6f45e764cf230086760482d671ddf142">ramWrite</a>(<span class="keyword">const</span> uint8_t, <span class="keywordtype">byte</span>);</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;            <span class="comment">// Address</span></div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;            <span class="keywordtype">int</span> _rtc_address = <a class="code" href="uRTCLib_8h.html#a15dab9b3b1d045b91ff1119cb3c9eee1">URTCLIB_ADDRESS</a>;</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;            <span class="comment">// RTC rad data</span></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;            uint8_t _second = 0;</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;            uint8_t _minute = 0;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;            uint8_t _hour = 0;</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;            uint8_t _day = 0;</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;            uint8_t _month = 0;</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;            uint8_t _year = 0;</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;            uint8_t _dayOfWeek = 0;</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;            int16_t _temp = 9999;</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;            <span class="comment">// Model, for alarms and RAM</span></div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;            uint8_t _model = <a class="code" href="uRTCLib_8h.html#a443a092bab3baf40886923a58ac9ca91">URTCLIB_MODEL_DS3232</a>;</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160; </div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;            <span class="comment">// Alarms:</span></div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;            uint8_t _a1_mode = <a class="code" href="uRTCLib_8h.html#a8ac5f9b8924faa7c9b1fd1ff6c8a51e9">URTCLIB_ALARM_TYPE_1_NONE</a>;</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;            uint8_t _a1_second = 0;</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;            uint8_t _a1_minute = 0;</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;            uint8_t _a1_hour = 0;</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;            uint8_t _a1_day_dow = 0;</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160; </div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;            uint8_t _a2_mode = <a class="code" href="uRTCLib_8h.html#ab8b0414eb04905b5be9d4cc60f9ff3cf">URTCLIB_ALARM_TYPE_2_NONE</a>;</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;            uint8_t _a2_minute = 0;</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;            uint8_t _a2_hour = 0;</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;            uint8_t _a2_day_dow = 0;</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; </div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;            <span class="comment">// SQWG</span></div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;            uint8_t _sqwg_mode = <a class="code" href="uRTCLib_8h.html#a5c1d19a64fdf1fd626aac085b29d3b71">URTCLIB_SQWG_OFF_1</a>;</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160; </div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    };</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160; </div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassuRTCLib_html_a1832bbb5322fbe2895c14132e559e03a"><div class="ttname"><a href="classuRTCLib.html#a1832bbb5322fbe2895c14132e559e03a">uRTCLib::alarmClearFlag</a></div><div class="ttdeci">bool alarmClearFlag(const uint8_t)</div><div class="ttdoc">Clears an alarm flag.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:754</div></div>
-<div class="ttc" id="auRTCLib_8h_html_a5c1d19a64fdf1fd626aac085b29d3b71"><div class="ttname"><a href="uRTCLib_8h.html#a5c1d19a64fdf1fd626aac085b29d3b71">URTCLIB_SQWG_OFF_1</a></div><div class="ttdeci">#define URTCLIB_SQWG_OFF_1</div><div class="ttdoc">SQWG OFF, keeps output hight.</div><div class="ttdef"><b>Definition:</b> uRTCLib.h:202</div></div>
-<div class="ttc" id="aclassuRTCLib_html_aea2bfdbdbe0e33f5195d80e4a0278647"><div class="ttname"><a href="classuRTCLib.html#aea2bfdbdbe0e33f5195d80e4a0278647">uRTCLib::sqwgSetMode</a></div><div class="ttdeci">bool sqwgSetMode(const uint8_t)</div><div class="ttdoc">Changes SQWG mode, including turning it off.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:996</div></div>
-<div class="ttc" id="aclassuRTCLib_html_af1c38eaa16275a0e48ffe17ea25e236f"><div class="ttname"><a href="classuRTCLib.html#af1c38eaa16275a0e48ffe17ea25e236f">uRTCLib::minute</a></div><div class="ttdeci">uint8_t minute()</div><div class="ttdoc">Returns actual minute.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:369</div></div>
-<div class="ttc" id="aclassuRTCLib_html_a5af1cc47e8dbc936e7bc7111c81e9d26"><div class="ttname"><a href="classuRTCLib.html#a5af1cc47e8dbc936e7bc7111c81e9d26">uRTCLib::alarmDayDow</a></div><div class="ttdeci">uint8_t alarmDayDow(const uint8_t)</div><div class="ttdoc">Returns actual alarm day or DOW.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:956</div></div>
-<div class="ttc" id="auRTCLib_8h_html_ab8b0414eb04905b5be9d4cc60f9ff3cf"><div class="ttname"><a href="uRTCLib_8h.html#ab8b0414eb04905b5be9d4cc60f9ff3cf">URTCLIB_ALARM_TYPE_2_NONE</a></div><div class="ttdeci">#define URTCLIB_ALARM_TYPE_2_NONE</div><div class="ttdoc">Alarm 2 - Disabled.</div><div class="ttdef"><b>Definition:</b> uRTCLib.h:151</div></div>
-<div class="ttc" id="aclassuRTCLib_html_a08f27cc309e8ac351f147a43a5b914e7"><div class="ttname"><a href="classuRTCLib.html#a08f27cc309e8ac351f147a43a5b914e7">uRTCLib::second</a></div><div class="ttdeci">uint8_t second()</div><div class="ttdoc">Returns actual second.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:360</div></div>
-<div class="ttc" id="aclassuRTCLib_html_ad51b66f85c8010fc736696c54358e988"><div class="ttname"><a href="classuRTCLib.html#ad51b66f85c8010fc736696c54358e988">uRTCLib::alarmMinute</a></div><div class="ttdeci">uint8_t alarmMinute(const uint8_t)</div><div class="ttdoc">Returns actual alarm minute.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:891</div></div>
-<div class="ttc" id="auRTCLib_8h_html_a8ac5f9b8924faa7c9b1fd1ff6c8a51e9"><div class="ttname"><a href="uRTCLib_8h.html#a8ac5f9b8924faa7c9b1fd1ff6c8a51e9">URTCLIB_ALARM_TYPE_1_NONE</a></div><div class="ttdeci">#define URTCLIB_ALARM_TYPE_1_NONE</div><div class="ttdoc">Alarm 1 - Disabled.</div><div class="ttdef"><b>Definition:</b> uRTCLib.h:105</div></div>
-<div class="ttc" id="aclassuRTCLib_html_a669cd764254d89fbda9d0eba2040c8ed"><div class="ttname"><a href="classuRTCLib.html#a669cd764254d89fbda9d0eba2040c8ed">uRTCLib::day</a></div><div class="ttdeci">uint8_t day()</div><div class="ttdoc">Returns actual day.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:388</div></div>
-<div class="ttc" id="aclassuRTCLib_html_a85fe897310af5e33f986a54f2e3e32a5"><div class="ttname"><a href="classuRTCLib.html#a85fe897310af5e33f986a54f2e3e32a5">uRTCLib::set</a></div><div class="ttdeci">void set(const uint8_t, const uint8_t, const uint8_t, const uint8_t, const uint8_t, const uint8_t, const uint8_t)</div><div class="ttdoc">Sets RTC datetime data.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:479</div></div>
-<div class="ttc" id="aclassuRTCLib_html_af85791c112c20a96d104d3c0e9fba415"><div class="ttname"><a href="classuRTCLib.html#af85791c112c20a96d104d3c0e9fba415">uRTCLib::model</a></div><div class="ttdeci">uint8_t model()</div><div class="ttdoc">Gets RTC Model.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:457</div></div>
-<div class="ttc" id="aclassuRTCLib_html_ae1744a3e80339751c744928ef31f9b58"><div class="ttname"><a href="classuRTCLib.html#ae1744a3e80339751c744928ef31f9b58">uRTCLib::lostPowerClear</a></div><div class="ttdeci">void lostPowerClear()</div><div class="ttdoc">Clears lost power VBAT staus.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:290</div></div>
-<div class="ttc" id="auRTCLib_8h_html_a443a092bab3baf40886923a58ac9ca91"><div class="ttname"><a href="uRTCLib_8h.html#a443a092bab3baf40886923a58ac9ca91">URTCLIB_MODEL_DS3232</a></div><div class="ttdeci">#define URTCLIB_MODEL_DS3232</div><div class="ttdoc">Model definition, DS3232.</div><div class="ttdef"><b>Definition:</b> uRTCLib.h:53</div></div>
-<div class="ttc" id="aclassuRTCLib_html_a69e601157f3e8326d9c6b9b9a195b44d"><div class="ttname"><a href="classuRTCLib.html#a69e601157f3e8326d9c6b9b9a195b44d">uRTCLib::alarmHour</a></div><div class="ttdeci">uint8_t alarmHour(const uint8_t)</div><div class="ttdoc">Returns actual alarm hour.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:924</div></div>
-<div class="ttc" id="aclassuRTCLib_html_aea0103b443e36f43b56c36075f07f55d"><div class="ttname"><a href="classuRTCLib.html#aea0103b443e36f43b56c36075f07f55d">uRTCLib::alarmSecond</a></div><div class="ttdeci">uint8_t alarmSecond(const uint8_t)</div><div class="ttdoc">Returns actual alarm second.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:859</div></div>
-<div class="ttc" id="aclassuRTCLib_html_ab4131c1930333f1b75aa8bba7fb8ef41"><div class="ttname"><a href="classuRTCLib.html#ab4131c1930333f1b75aa8bba7fb8ef41">uRTCLib::hour</a></div><div class="ttdeci">uint8_t hour()</div><div class="ttdoc">Returns actual hour.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:379</div></div>
-<div class="ttc" id="auRTCLib_8h_html_a15dab9b3b1d045b91ff1119cb3c9eee1"><div class="ttname"><a href="uRTCLib_8h.html#a15dab9b3b1d045b91ff1119cb3c9eee1">URTCLIB_ADDRESS</a></div><div class="ttdeci">#define URTCLIB_ADDRESS</div><div class="ttdoc">Default RTC I2C address.</div><div class="ttdef"><b>Definition:</b> uRTCLib.h:39</div></div>
-<div class="ttc" id="aclassuRTCLib_html"><div class="ttname"><a href="classuRTCLib.html">uRTCLib</a></div><div class="ttdoc">DS1307, DS3231 and DS3232 RTCs basic library.</div><div class="ttdef"><b>Definition:</b> uRTCLib.h:277</div></div>
-<div class="ttc" id="aclassuRTCLib_html_a0bc90d755bf101de52a0b904c76c4c95"><div class="ttname"><a href="classuRTCLib.html#a0bc90d755bf101de52a0b904c76c4c95">uRTCLib::set_rtc_address</a></div><div class="ttdeci">void set_rtc_address(const int)</div><div class="ttdoc">Sets RTC i2 addres.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:432</div></div>
-<div class="ttc" id="aclassuRTCLib_html_a8f4aee6683c23572e719a94479e13541"><div class="ttname"><a href="classuRTCLib.html#a8f4aee6683c23572e719a94479e13541">uRTCLib::refresh</a></div><div class="ttdeci">void refresh()</div><div class="ttdoc">Refresh data from HW RTC.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:62</div></div>
-<div class="ttc" id="aclassuRTCLib_html_a6a4fe72b0cf169947493fd75135e43f4"><div class="ttname"><a href="classuRTCLib.html#a6a4fe72b0cf169947493fd75135e43f4">uRTCLib::lostPower</a></div><div class="ttdeci">bool lostPower()</div><div class="ttdoc">Returns lost power VBAT staus.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:251</div></div>
-<div class="ttc" id="aclassuRTCLib_html_a2c6adae52f0a7dce90c9e76a5ffd89f9"><div class="ttname"><a href="classuRTCLib.html#a2c6adae52f0a7dce90c9e76a5ffd89f9">uRTCLib::month</a></div><div class="ttdeci">uint8_t month()</div><div class="ttdoc">Returns actual month.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:397</div></div>
-<div class="ttc" id="aclassuRTCLib_html_af181a337b5ed0a15afa900c80c160586"><div class="ttname"><a href="classuRTCLib.html#af181a337b5ed0a15afa900c80c160586">uRTCLib::year</a></div><div class="ttdeci">uint8_t year()</div><div class="ttdoc">Returns actual year.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:406</div></div>
-<div class="ttc" id="aclassuRTCLib_html_a1f2565ec6197c27b2281365f2ca0c566"><div class="ttname"><a href="classuRTCLib.html#a1f2565ec6197c27b2281365f2ca0c566">uRTCLib::alarmSet</a></div><div class="ttdeci">bool alarmSet(const uint8_t, const uint8_t, const uint8_t, const uint8_t, const uint8_t)</div><div class="ttdoc">Sets any alarm.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:540</div></div>
-<div class="ttc" id="aclassuRTCLib_html_ab37deecb323804e8c97eda2d6c5b711e"><div class="ttname"><a href="classuRTCLib.html#ab37deecb323804e8c97eda2d6c5b711e">uRTCLib::dayOfWeek</a></div><div class="ttdeci">uint8_t dayOfWeek()</div><div class="ttdoc">Returns actual Day Of Week.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:422</div></div>
-<div class="ttc" id="aclassuRTCLib_html_a8972999ee5a878d562f37c21bf3b2e4d"><div class="ttname"><a href="classuRTCLib.html#a8972999ee5a878d562f37c21bf3b2e4d">uRTCLib::alarmMode</a></div><div class="ttdeci">uint8_t alarmMode(const uint8_t)</div><div class="ttdoc">Returns actual alarm mode.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:827</div></div>
-<div class="ttc" id="aclassuRTCLib_html_af8eea2501d6b82726ce6226529c82a89"><div class="ttname"><a href="classuRTCLib.html#af8eea2501d6b82726ce6226529c82a89">uRTCLib::ramRead</a></div><div class="ttdeci">byte ramRead(const uint8_t)</div><div class="ttdoc">Reads a byte from RTC RAM.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:1146</div></div>
-<div class="ttc" id="aclassuRTCLib_html_a6f45e764cf230086760482d671ddf142"><div class="ttname"><a href="classuRTCLib.html#a6f45e764cf230086760482d671ddf142">uRTCLib::ramWrite</a></div><div class="ttdeci">bool ramWrite(const uint8_t, byte)</div><div class="ttdoc">Writes a byte to RTC RAM.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:1184</div></div>
-<div class="ttc" id="aclassuRTCLib_html_a0f5febc963ca4ffd6f5c72560a83d2c2"><div class="ttname"><a href="classuRTCLib.html#a0f5febc963ca4ffd6f5c72560a83d2c2">uRTCLib::set_model</a></div><div class="ttdeci">void set_model(const uint8_t)</div><div class="ttdoc">Sets RTC Model.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:445</div></div>
-<div class="ttc" id="aclassuRTCLib_html_aac4f19eca28bb842bcde486e237bbdbf"><div class="ttname"><a href="classuRTCLib.html#aac4f19eca28bb842bcde486e237bbdbf">uRTCLib::sqwgMode</a></div><div class="ttdeci">uint8_t sqwgMode()</div><div class="ttdoc">Gets current SQWG mode.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:1131</div></div>
-<div class="ttc" id="aclassuRTCLib_html_a2e9e2c25071eda27472bddf38bf84220"><div class="ttname"><a href="classuRTCLib.html#a2e9e2c25071eda27472bddf38bf84220">uRTCLib::temp</a></div><div class="ttdeci">int16_t temp()</div><div class="ttdoc">Returns actual temperature.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:348</div></div>
-<div class="ttc" id="aclassuRTCLib_html_a79b15b0adbfed33caee00e0ec4e45898"><div class="ttname"><a href="classuRTCLib.html#a79b15b0adbfed33caee00e0ec4e45898">uRTCLib::alarmDisable</a></div><div class="ttdeci">bool alarmDisable(const uint8_t)</div><div class="ttdoc">Disables an alarm.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:699</div></div>
-<div class="ttc" id="aclassuRTCLib_html_a9188d72902c1d153961fa0b2a3b9a98b"><div class="ttname"><a href="classuRTCLib.html#a9188d72902c1d153961fa0b2a3b9a98b">uRTCLib::uRTCLib</a></div><div class="ttdeci">uRTCLib()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:34</div></div>
+<div class="ttc" id="aclassuRTCLib_html_a1832bbb5322fbe2895c14132e559e03a"><div class="ttname"><a href="classuRTCLib.html#a1832bbb5322fbe2895c14132e559e03a">uRTCLib::alarmClearFlag</a></div><div class="ttdeci">bool alarmClearFlag(const uint8_t)</div><div class="ttdoc">Clears an alarm flag.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:876</div></div>
+<div class="ttc" id="auRTCLib_8h_html_a5c1d19a64fdf1fd626aac085b29d3b71"><div class="ttname"><a href="uRTCLib_8h.html#a5c1d19a64fdf1fd626aac085b29d3b71">URTCLIB_SQWG_OFF_1</a></div><div class="ttdeci">#define URTCLIB_SQWG_OFF_1</div><div class="ttdoc">SQWG OFF, keeps output hight.</div><div class="ttdef"><b>Definition:</b> uRTCLib.h:213</div></div>
+<div class="ttc" id="aclassuRTCLib_html_aea2bfdbdbe0e33f5195d80e4a0278647"><div class="ttname"><a href="classuRTCLib.html#aea2bfdbdbe0e33f5195d80e4a0278647">uRTCLib::sqwgSetMode</a></div><div class="ttdeci">bool sqwgSetMode(const uint8_t)</div><div class="ttdoc">Changes SQWG mode, including turning it off.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:1118</div></div>
+<div class="ttc" id="aclassuRTCLib_html_af1c38eaa16275a0e48ffe17ea25e236f"><div class="ttname"><a href="classuRTCLib.html#af1c38eaa16275a0e48ffe17ea25e236f">uRTCLib::minute</a></div><div class="ttdeci">uint8_t minute()</div><div class="ttdoc">Returns actual minute.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:491</div></div>
+<div class="ttc" id="aclassuRTCLib_html_a5af1cc47e8dbc936e7bc7111c81e9d26"><div class="ttname"><a href="classuRTCLib.html#a5af1cc47e8dbc936e7bc7111c81e9d26">uRTCLib::alarmDayDow</a></div><div class="ttdeci">uint8_t alarmDayDow(const uint8_t)</div><div class="ttdoc">Returns actual alarm day or DOW.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:1078</div></div>
+<div class="ttc" id="auRTCLib_8h_html_ab8b0414eb04905b5be9d4cc60f9ff3cf"><div class="ttname"><a href="uRTCLib_8h.html#ab8b0414eb04905b5be9d4cc60f9ff3cf">URTCLIB_ALARM_TYPE_2_NONE</a></div><div class="ttdeci">#define URTCLIB_ALARM_TYPE_2_NONE</div><div class="ttdoc">Alarm 2 - Disabled.</div><div class="ttdef"><b>Definition:</b> uRTCLib.h:162</div></div>
+<div class="ttc" id="aclassuRTCLib_html_a08f27cc309e8ac351f147a43a5b914e7"><div class="ttname"><a href="classuRTCLib.html#a08f27cc309e8ac351f147a43a5b914e7">uRTCLib::second</a></div><div class="ttdeci">uint8_t second()</div><div class="ttdoc">Returns actual second.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:482</div></div>
+<div class="ttc" id="aclassuRTCLib_html_ad51b66f85c8010fc736696c54358e988"><div class="ttname"><a href="classuRTCLib.html#ad51b66f85c8010fc736696c54358e988">uRTCLib::alarmMinute</a></div><div class="ttdeci">uint8_t alarmMinute(const uint8_t)</div><div class="ttdoc">Returns actual alarm minute.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:1013</div></div>
+<div class="ttc" id="auRTCLib_8h_html_a8ac5f9b8924faa7c9b1fd1ff6c8a51e9"><div class="ttname"><a href="uRTCLib_8h.html#a8ac5f9b8924faa7c9b1fd1ff6c8a51e9">URTCLIB_ALARM_TYPE_1_NONE</a></div><div class="ttdeci">#define URTCLIB_ALARM_TYPE_1_NONE</div><div class="ttdoc">Alarm 1 - Disabled.</div><div class="ttdef"><b>Definition:</b> uRTCLib.h:116</div></div>
+<div class="ttc" id="aclassuRTCLib_html_a669cd764254d89fbda9d0eba2040c8ed"><div class="ttname"><a href="classuRTCLib.html#a669cd764254d89fbda9d0eba2040c8ed">uRTCLib::day</a></div><div class="ttdeci">uint8_t day()</div><div class="ttdoc">Returns actual day.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:510</div></div>
+<div class="ttc" id="aclassuRTCLib_html_a85fe897310af5e33f986a54f2e3e32a5"><div class="ttname"><a href="classuRTCLib.html#a85fe897310af5e33f986a54f2e3e32a5">uRTCLib::set</a></div><div class="ttdeci">void set(const uint8_t, const uint8_t, const uint8_t, const uint8_t, const uint8_t, const uint8_t, const uint8_t)</div><div class="ttdoc">Sets RTC datetime data.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:601</div></div>
+<div class="ttc" id="aclassuRTCLib_html_af85791c112c20a96d104d3c0e9fba415"><div class="ttname"><a href="classuRTCLib.html#af85791c112c20a96d104d3c0e9fba415">uRTCLib::model</a></div><div class="ttdeci">uint8_t model()</div><div class="ttdoc">Gets RTC Model.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:579</div></div>
+<div class="ttc" id="aclassuRTCLib_html_ae1744a3e80339751c744928ef31f9b58"><div class="ttname"><a href="classuRTCLib.html#ae1744a3e80339751c744928ef31f9b58">uRTCLib::lostPowerClear</a></div><div class="ttdeci">void lostPowerClear()</div><div class="ttdoc">Clears lost power VBAT staus.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:301</div></div>
+<div class="ttc" id="auRTCLib_8h_html_a443a092bab3baf40886923a58ac9ca91"><div class="ttname"><a href="uRTCLib_8h.html#a443a092bab3baf40886923a58ac9ca91">URTCLIB_MODEL_DS3232</a></div><div class="ttdeci">#define URTCLIB_MODEL_DS3232</div><div class="ttdoc">Model definition, DS3232.</div><div class="ttdef"><b>Definition:</b> uRTCLib.h:64</div></div>
+<div class="ttc" id="aclassuRTCLib_html_a69e601157f3e8326d9c6b9b9a195b44d"><div class="ttname"><a href="classuRTCLib.html#a69e601157f3e8326d9c6b9b9a195b44d">uRTCLib::alarmHour</a></div><div class="ttdeci">uint8_t alarmHour(const uint8_t)</div><div class="ttdoc">Returns actual alarm hour.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:1046</div></div>
+<div class="ttc" id="aclassuRTCLib_html_aea0103b443e36f43b56c36075f07f55d"><div class="ttname"><a href="classuRTCLib.html#aea0103b443e36f43b56c36075f07f55d">uRTCLib::alarmSecond</a></div><div class="ttdeci">uint8_t alarmSecond(const uint8_t)</div><div class="ttdoc">Returns actual alarm second.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:981</div></div>
+<div class="ttc" id="aclassuRTCLib_html_ab4131c1930333f1b75aa8bba7fb8ef41"><div class="ttname"><a href="classuRTCLib.html#ab4131c1930333f1b75aa8bba7fb8ef41">uRTCLib::hour</a></div><div class="ttdeci">uint8_t hour()</div><div class="ttdoc">Returns actual hour.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:501</div></div>
+<div class="ttc" id="auRTCLib_8h_html_a15dab9b3b1d045b91ff1119cb3c9eee1"><div class="ttname"><a href="uRTCLib_8h.html#a15dab9b3b1d045b91ff1119cb3c9eee1">URTCLIB_ADDRESS</a></div><div class="ttdeci">#define URTCLIB_ADDRESS</div><div class="ttdoc">Default RTC I2C address.</div><div class="ttdef"><b>Definition:</b> uRTCLib.h:50</div></div>
+<div class="ttc" id="aclassuRTCLib_html"><div class="ttname"><a href="classuRTCLib.html">uRTCLib</a></div><div class="ttdoc">DS1307, DS3231 and DS3232 RTCs basic library.</div><div class="ttdef"><b>Definition:</b> uRTCLib.h:288</div></div>
+<div class="ttc" id="aclassuRTCLib_html_a0bc90d755bf101de52a0b904c76c4c95"><div class="ttname"><a href="classuRTCLib.html#a0bc90d755bf101de52a0b904c76c4c95">uRTCLib::set_rtc_address</a></div><div class="ttdeci">void set_rtc_address(const int)</div><div class="ttdoc">Sets RTC i2 addres.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:554</div></div>
+<div class="ttc" id="aclassuRTCLib_html_a8f4aee6683c23572e719a94479e13541"><div class="ttname"><a href="classuRTCLib.html#a8f4aee6683c23572e719a94479e13541">uRTCLib::refresh</a></div><div class="ttdeci">void refresh()</div><div class="ttdoc">Refresh data from HW RTC.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:73</div></div>
+<div class="ttc" id="aclassuRTCLib_html_a6a4fe72b0cf169947493fd75135e43f4"><div class="ttname"><a href="classuRTCLib.html#a6a4fe72b0cf169947493fd75135e43f4">uRTCLib::lostPower</a></div><div class="ttdeci">bool lostPower()</div><div class="ttdoc">Returns lost power VBAT staus.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:262</div></div>
+<div class="ttc" id="aclassuRTCLib_html_a2c6adae52f0a7dce90c9e76a5ffd89f9"><div class="ttname"><a href="classuRTCLib.html#a2c6adae52f0a7dce90c9e76a5ffd89f9">uRTCLib::month</a></div><div class="ttdeci">uint8_t month()</div><div class="ttdoc">Returns actual month.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:519</div></div>
+<div class="ttc" id="aclassuRTCLib_html_af181a337b5ed0a15afa900c80c160586"><div class="ttname"><a href="classuRTCLib.html#af181a337b5ed0a15afa900c80c160586">uRTCLib::year</a></div><div class="ttdeci">uint8_t year()</div><div class="ttdoc">Returns actual year.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:528</div></div>
+<div class="ttc" id="aclassuRTCLib_html_a1f2565ec6197c27b2281365f2ca0c566"><div class="ttname"><a href="classuRTCLib.html#a1f2565ec6197c27b2281365f2ca0c566">uRTCLib::alarmSet</a></div><div class="ttdeci">bool alarmSet(const uint8_t, const uint8_t, const uint8_t, const uint8_t, const uint8_t)</div><div class="ttdoc">Sets any alarm.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:662</div></div>
+<div class="ttc" id="aclassuRTCLib_html_ab37deecb323804e8c97eda2d6c5b711e"><div class="ttname"><a href="classuRTCLib.html#ab37deecb323804e8c97eda2d6c5b711e">uRTCLib::dayOfWeek</a></div><div class="ttdeci">uint8_t dayOfWeek()</div><div class="ttdoc">Returns actual Day Of Week.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:544</div></div>
+<div class="ttc" id="aclassuRTCLib_html_a8972999ee5a878d562f37c21bf3b2e4d"><div class="ttname"><a href="classuRTCLib.html#a8972999ee5a878d562f37c21bf3b2e4d">uRTCLib::alarmMode</a></div><div class="ttdeci">uint8_t alarmMode(const uint8_t)</div><div class="ttdoc">Returns actual alarm mode.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:949</div></div>
+<div class="ttc" id="aclassuRTCLib_html_af8eea2501d6b82726ce6226529c82a89"><div class="ttname"><a href="classuRTCLib.html#af8eea2501d6b82726ce6226529c82a89">uRTCLib::ramRead</a></div><div class="ttdeci">byte ramRead(const uint8_t)</div><div class="ttdoc">Reads a byte from RTC RAM.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:1268</div></div>
+<div class="ttc" id="aclassuRTCLib_html_a6f45e764cf230086760482d671ddf142"><div class="ttname"><a href="classuRTCLib.html#a6f45e764cf230086760482d671ddf142">uRTCLib::ramWrite</a></div><div class="ttdeci">bool ramWrite(const uint8_t, byte)</div><div class="ttdoc">Writes a byte to RTC RAM.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:1306</div></div>
+<div class="ttc" id="aclassuRTCLib_html_aed6faa670c43fdab8b3d23851d38931d"><div class="ttname"><a href="classuRTCLib.html#aed6faa670c43fdab8b3d23851d38931d">uRTCLib::disableBattery</a></div><div class="ttdeci">bool disableBattery()</div><div class="ttdoc">Disable VBAT operation when VCC power is lost.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:418</div></div>
+<div class="ttc" id="aclassuRTCLib_html_a0f5febc963ca4ffd6f5c72560a83d2c2"><div class="ttname"><a href="classuRTCLib.html#a0f5febc963ca4ffd6f5c72560a83d2c2">uRTCLib::set_model</a></div><div class="ttdeci">void set_model(const uint8_t)</div><div class="ttdoc">Sets RTC Model.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:567</div></div>
+<div class="ttc" id="aclassuRTCLib_html_a992ac65e9b3fd6fc654a86a1633e4902"><div class="ttname"><a href="classuRTCLib.html#a992ac65e9b3fd6fc654a86a1633e4902">uRTCLib::enableBattery</a></div><div class="ttdeci">bool enableBattery()</div><div class="ttdoc">Enable VBAT operation when VCC power is lost.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:367</div></div>
+<div class="ttc" id="aclassuRTCLib_html_aac4f19eca28bb842bcde486e237bbdbf"><div class="ttname"><a href="classuRTCLib.html#aac4f19eca28bb842bcde486e237bbdbf">uRTCLib::sqwgMode</a></div><div class="ttdeci">uint8_t sqwgMode()</div><div class="ttdoc">Gets current SQWG mode.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:1253</div></div>
+<div class="ttc" id="aclassuRTCLib_html_a2e9e2c25071eda27472bddf38bf84220"><div class="ttname"><a href="classuRTCLib.html#a2e9e2c25071eda27472bddf38bf84220">uRTCLib::temp</a></div><div class="ttdeci">int16_t temp()</div><div class="ttdoc">Returns actual temperature.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:470</div></div>
+<div class="ttc" id="aclassuRTCLib_html_a79b15b0adbfed33caee00e0ec4e45898"><div class="ttname"><a href="classuRTCLib.html#a79b15b0adbfed33caee00e0ec4e45898">uRTCLib::alarmDisable</a></div><div class="ttdeci">bool alarmDisable(const uint8_t)</div><div class="ttdoc">Disables an alarm.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:821</div></div>
+<div class="ttc" id="aclassuRTCLib_html_a9188d72902c1d153961fa0b2a3b9a98b"><div class="ttname"><a href="classuRTCLib.html#a9188d72902c1d153961fa0b2a3b9a98b">uRTCLib::uRTCLib</a></div><div class="ttdeci">uRTCLib()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> uRTCLib.cpp:45</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

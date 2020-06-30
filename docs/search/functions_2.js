@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hour_79',['hour',['../classuRTCLib.html#ab4131c1930333f1b75aa8bba7fb8ef41',1,'uRTCLib']]]
+  ['enablebattery_82',['enableBattery',['../classuRTCLib.html#a992ac65e9b3fd6fc654a86a1633e4902',1,'uRTCLib']]]
 ];
