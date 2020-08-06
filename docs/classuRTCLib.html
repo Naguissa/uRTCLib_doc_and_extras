@@ -173,6 +173,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a6f45e764cf230086760482d671ddf142"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuRTCLib.html#a6f45e764cf230086760482d671ddf142">ramWrite</a> (const uint8_t, byte)</td></tr>
 <tr class="memdesc:a6f45e764cf230086760482d671ddf142"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a byte to RTC RAM.  <a href="classuRTCLib.html#a6f45e764cf230086760482d671ddf142">More...</a><br /></td></tr>
 <tr class="separator:a6f45e764cf230086760482d671ddf142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbcb3d9f562844b1afb1debb50070690"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuRTCLib.html#acbcb3d9f562844b1afb1debb50070690">agingGet</a> ()</td></tr>
+<tr class="memdesc:acbcb3d9f562844b1afb1debb50070690"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads actual aging value on the RTC.  <a href="classuRTCLib.html#acbcb3d9f562844b1afb1debb50070690">More...</a><br /></td></tr>
+<tr class="separator:acbcb3d9f562844b1afb1debb50070690"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac73c958e988b12dc3e3abb3cc21f9aca"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuRTCLib.html#ac73c958e988b12dc3e3abb3cc21f9aca">agingSet</a> (int8_t)</td></tr>
+<tr class="memdesc:ac73c958e988b12dc3e3abb3cc21f9aca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets aging value on the RTC.  <a href="classuRTCLib.html#ac73c958e988b12dc3e3abb3cc21f9aca">More...</a><br /></td></tr>
+<tr class="separator:ac73c958e988b12dc3e3abb3cc21f9aca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>DS1307, DS3231 and DS3232 RTCs basic library. </p>
@@ -257,6 +263,53 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="acbcb3d9f562844b1afb1debb50070690"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbcb3d9f562844b1afb1debb50070690">&#9670;&nbsp;</a></span>agingGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t uRTCLib::agingGet </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reads actual aging value on the RTC. </p>
+<dl class="section return"><dt>Returns</dt><dd>Aging register value on RTC, 2-complement recalculated (use as regular int8_t) </dd></dl>
+
+</div>
+</div>
+<a id="ac73c958e988b12dc3e3abb3cc21f9aca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac73c958e988b12dc3e3abb3cc21f9aca">&#9670;&nbsp;</a></span>agingSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool uRTCLib::agingSet </td>
+          <td>(</td>
+          <td class="paramtype">int8_t&#160;</td>
+          <td class="paramname"><em>val</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets aging value on the RTC. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>new value (use as regular int8_t, 2-complement conversion is done internally)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True when executed, false if RTC doesn't support it. </dd></dl>
+
+</div>
+</div>
 <a id="a1832bbb5322fbe2895c14132e559e03a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1832bbb5322fbe2895c14132e559e03a">&#9670;&nbsp;</a></span>alarmClearFlag()</h2>
 
