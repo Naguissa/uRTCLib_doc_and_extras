@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['urtclib_70',['uRTCLib',['../classuRTCLib.html',1,'']]]
+  ['urtclib_72',['uRTCLib',['../classuRTCLib.html',1,'']]]
 ];
