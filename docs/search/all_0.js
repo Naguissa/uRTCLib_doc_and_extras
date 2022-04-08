@@ -9,5 +9,6 @@ var searchData=
   ['alarmminute_6',['alarmMinute',['../classuRTCLib.html#ad51b66f85c8010fc736696c54358e988',1,'uRTCLib']]],
   ['alarmmode_7',['alarmMode',['../classuRTCLib.html#a8972999ee5a878d562f37c21bf3b2e4d',1,'uRTCLib']]],
   ['alarmsecond_8',['alarmSecond',['../classuRTCLib.html#aea0103b443e36f43b56c36075f07f55d',1,'uRTCLib']]],
-  ['alarmset_9',['alarmSet',['../classuRTCLib.html#a1f2565ec6197c27b2281365f2ca0c566',1,'uRTCLib']]]
+  ['alarmset_9',['alarmSet',['../classuRTCLib.html#a1f2565ec6197c27b2281365f2ca0c566',1,'uRTCLib']]],
+  ['alarmtriggered_10',['alarmTriggered',['../classuRTCLib.html#a5336e67a31351528ab7de7dbfb2317a3',1,'uRTCLib']]]
 ];
