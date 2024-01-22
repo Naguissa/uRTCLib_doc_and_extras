@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['lostpower_98',['lostPower',['../classuRTCLib.html#a6a4fe72b0cf169947493fd75135e43f4',1,'uRTCLib']]],
-  ['lostpowerclear_99',['lostPowerClear',['../classuRTCLib.html#ae1744a3e80339751c744928ef31f9b58',1,'uRTCLib']]]
+  ['hour_0',['hour',['../classuRTCLib.html#ab4131c1930333f1b75aa8bba7fb8ef41',1,'uRTCLib']]]
 ];

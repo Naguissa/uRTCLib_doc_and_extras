@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hour_17',['hour',['../classuRTCLib.html#ab4131c1930333f1b75aa8bba7fb8ef41',1,'uRTCLib']]]
+  ['geteoscflag_0',['getEOSCFlag',['../classuRTCLib.html#aeaca9bb3351f6b64a7812dc9cd3c3e13',1,'uRTCLib']]]
 ];

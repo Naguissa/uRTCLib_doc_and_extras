@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['ramread_103',['ramRead',['../classuRTCLib.html#af8eea2501d6b82726ce6226529c82a89',1,'uRTCLib']]],
-  ['ramwrite_104',['ramWrite',['../classuRTCLib.html#a6f45e764cf230086760482d671ddf142',1,'uRTCLib']]],
-  ['refresh_105',['refresh',['../classuRTCLib.html#a8f4aee6683c23572e719a94479e13541',1,'uRTCLib']]]
+  ['minute_0',['minute',['../classuRTCLib.html#af1c38eaa16275a0e48ffe17ea25e236f',1,'uRTCLib']]],
+  ['model_1',['model',['../classuRTCLib.html#af85791c112c20a96d104d3c0e9fba415',1,'uRTCLib']]],
+  ['month_2',['month',['../classuRTCLib.html#a2c6adae52f0a7dce90c9e76a5ffd89f9',1,'uRTCLib']]]
 ];
