@@ -105,6 +105,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>refresh</b> ()</td></
 <tr class="memitem:ab4131c1930333f1b75aa8bba7fb8ef41" id="r_ab4131c1930333f1b75aa8bba7fb8ef41"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuRTCLib.html#ab4131c1930333f1b75aa8bba7fb8ef41">hour</a> ()</td></tr>
 <tr class="memdesc:ab4131c1930333f1b75aa8bba7fb8ef41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns actual hour.  <br /></td></tr>
 <tr class="separator:ab4131c1930333f1b75aa8bba7fb8ef41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeddba7b71c3089ede5d113bdb0011b7d" id="r_aeddba7b71c3089ede5d113bdb0011b7d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuRTCLib.html#aeddba7b71c3089ede5d113bdb0011b7d">hourModeAndAmPm</a> ()</td></tr>
+<tr class="memdesc:aeddba7b71c3089ede5d113bdb0011b7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether clock is in 12 or 24 hour mode and AM or PM if in 12 hour mode 0 = 24 hour mode (0-23 hours) 1 = 12 hour mode AM hours (1-12 hours) 2 = 12 hour mode PM hours (1-12 hours)  <br /></td></tr>
+<tr class="separator:aeddba7b71c3089ede5d113bdb0011b7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a669cd764254d89fbda9d0eba2040c8ed" id="r_a669cd764254d89fbda9d0eba2040c8ed"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuRTCLib.html#a669cd764254d89fbda9d0eba2040c8ed">day</a> ()</td></tr>
 <tr class="memdesc:a669cd764254d89fbda9d0eba2040c8ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns actual day.  <br /></td></tr>
 <tr class="separator:a669cd764254d89fbda9d0eba2040c8ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,6 +126,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>refresh</b> ()</td></
 <tr class="memitem:a85fe897310af5e33f986a54f2e3e32a5" id="r_a85fe897310af5e33f986a54f2e3e32a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuRTCLib.html#a85fe897310af5e33f986a54f2e3e32a5">set</a> (const uint8_t, const uint8_t, const uint8_t, const uint8_t, const uint8_t, const uint8_t, const uint8_t)</td></tr>
 <tr class="memdesc:a85fe897310af5e33f986a54f2e3e32a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets RTC datetime data.  <br /></td></tr>
 <tr class="separator:a85fe897310af5e33f986a54f2e3e32a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10400c5bfb777975f1d6ab64545f56da" id="r_a10400c5bfb777975f1d6ab64545f56da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuRTCLib.html#a10400c5bfb777975f1d6ab64545f56da">set_12hour_mode</a> (const bool)</td></tr>
+<tr class="memdesc:a10400c5bfb777975f1d6ab64545f56da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set clock in 12 or 24 hour mode 12 hour mode has 1-12 hours and AM or PM flag 24 hour mode has 0-23 hours get current clock mode and AM or PM flag using <a class="el" href="classuRTCLib.html#aeddba7b71c3089ede5d113bdb0011b7d" title="Returns whether clock is in 12 or 24 hour mode and AM or PM if in 12 hour mode 0 = 24 hour mode (0-23...">hourModeAndAmPm()</a>  <br /></td></tr>
+<tr class="separator:a10400c5bfb777975f1d6ab64545f56da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bc90d755bf101de52a0b904c76c4c95" id="r_a0bc90d755bf101de52a0b904c76c4c95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuRTCLib.html#a0bc90d755bf101de52a0b904c76c4c95">set_rtc_address</a> (const int)</td></tr>
 <tr class="memdesc:a0bc90d755bf101de52a0b904c76c4c95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets RTC i2 addres.  <br /></td></tr>
 <tr class="separator:a0bc90d755bf101de52a0b904c76c4c95"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,7 +139,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>refresh</b> ()</td></
 <tr class="memdesc:af85791c112c20a96d104d3c0e9fba415"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets RTC Model.  <br /></td></tr>
 <tr class="separator:af85791c112c20a96d104d3c0e9fba415"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeaca9bb3351f6b64a7812dc9cd3c3e13" id="r_aeaca9bb3351f6b64a7812dc9cd3c3e13"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuRTCLib.html#aeaca9bb3351f6b64a7812dc9cd3c3e13">getEOSCFlag</a> ()</td></tr>
-<tr class="memdesc:aeaca9bb3351f6b64a7812dc9cd3c3e13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns Enable Oscillator Flah.  <br /></td></tr>
+<tr class="memdesc:aeaca9bb3351f6b64a7812dc9cd3c3e13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns Enable Oscillator Flag.  <br /></td></tr>
 <tr class="separator:aeaca9bb3351f6b64a7812dc9cd3c3e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a4fe72b0cf169947493fd75135e43f4" id="r_a6a4fe72b0cf169947493fd75135e43f4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuRTCLib.html#a6a4fe72b0cf169947493fd75135e43f4">lostPower</a> ()</td></tr>
 <tr class="memdesc:a6a4fe72b0cf169947493fd75135e43f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns lost power VBAT staus.  <br /></td></tr>
@@ -822,7 +828,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>refresh</b> ()</td></
       </table>
 </div><div class="memdoc">
 
-<p>Returns Enable Oscillator Flah. </p>
+<p>Returns Enable Oscillator Flag. </p>
+<p>Returns Enable Oscillator Flah.</p>
 <p>DS3231 Control Register (0Eh) Bit 7: Enable Oscillator (EOSC) When set to logic 0, the oscillator is started. When set to logic 1, the oscillator is stopped when the DS3231 switches to VBAT. This bit is clear (logic 0) when power is first applied. When the DS3231 is powered by VCC, the oscillator is always on regardless of the status of the EOSC bit. When EOSC is disabled, all register data is static.</p>
 <dl class="section return"><dt>Returns</dt><dd>_eosc flag - 0 if set to enable OSC with VBAT if VCC is stopped </dd></dl>
 
@@ -845,6 +852,27 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>refresh</b> ()</td></
 
 <p>Returns actual hour. </p>
 <dl class="section return"><dt>Returns</dt><dd>Current stored hour </dd></dl>
+
+</div>
+</div>
+<a id="aeddba7b71c3089ede5d113bdb0011b7d" name="aeddba7b71c3089ede5d113bdb0011b7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeddba7b71c3089ede5d113bdb0011b7d">&#9670;&#160;</a></span>hourModeAndAmPm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t uRTCLib::hourModeAndAmPm </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns whether clock is in 12 or 24 hour mode and AM or PM if in 12 hour mode 0 = 24 hour mode (0-23 hours) 1 = 12 hour mode AM hours (1-12 hours) 2 = 12 hour mode PM hours (1-12 hours) </p>
+<p>Returns whether clock is in 12 or 24 hour mode with AM or PM if in 12 hour mode 0 = 24 hour mode (0-23 hours) 1 = 12 hour mode AM hours (1-12 hours) 2 = 12 hour mode PM hours (1-12 hours)</p>
+<dl class="section return"><dt>Returns</dt><dd>byte with value 0, 1 or 2 </dd></dl>
 
 </div>
 </div>
@@ -1118,6 +1146,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>refresh</b> ()</td></
     <tr><td class="paramname">dayOfMonth</td><td>day of month to set to HW RTC </td></tr>
     <tr><td class="paramname">month</td><td>month to set to HW RTC </td></tr>
     <tr><td class="paramname">year</td><td>year to set to HW RTC in last 2 digits mode. As RTCs only support 19xx and 20xx years (see datasheets), it's harcoded to 20xx. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a10400c5bfb777975f1d6ab64545f56da" name="a10400c5bfb777975f1d6ab64545f56da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10400c5bfb777975f1d6ab64545f56da">&#9670;&#160;</a></span>set_12hour_mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void uRTCLib::set_12hour_mode </td>
+          <td>(</td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>twelveHrMode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set clock in 12 or 24 hour mode 12 hour mode has 1-12 hours and AM or PM flag 24 hour mode has 0-23 hours get current clock mode and AM or PM flag using <a class="el" href="classuRTCLib.html#aeddba7b71c3089ede5d113bdb0011b7d" title="Returns whether clock is in 12 or 24 hour mode and AM or PM if in 12 hour mode 0 = 24 hour mode (0-23...">hourModeAndAmPm()</a> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">twelveHrMode</td><td>true or false </td></tr>
   </table>
   </dd>
 </dl>
