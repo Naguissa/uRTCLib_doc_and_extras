@@ -219,7 +219,9 @@ Public Member Functions</h2></td></tr>
 <li>Power failure check and clear</li>
 </ul>
 <p>See uEEPROMLib for EEPROM support, <a href="https://github.com/Naguissa/uEEPROMLib">https://github.com/Naguissa/uEEPROMLib</a></p>
-<p>Note: For AtTiny you need TinyWireM library from Adafruit installed (available on library manager). </p>
+<p>Note: For AtTiny you need TinyWireM library from Adafruit installed (available on library manager).</p>
+<p>I2C locked in unknown state</p>
+<p>If uC crashes and I2C communication is locked in a unknown state you have a procedure to unlock it. It's not implemented in this library but you can find an explanation and a PIC implementation thanks to @rtek1000 in #42 : <a href="https://github.com/Naguissa/uRTCLib/issues/42">https://github.com/Naguissa/uRTCLib/issues/42</a> </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aea4c4064eea43bef31c69462945d237a" name="aea4c4064eea43bef31c69462945d237a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea4c4064eea43bef31c69462945d237a">&#9670;&#160;</a></span>uRTCLib() <span class="overload">[1/2]</span></h2>
@@ -916,6 +918,8 @@ Public Member Functions</h2></td></tr>
 
 <p>Clears lost power VBAT staus. </p>
 <p>DS1307 has a 'CH' Clock Halt Bit in Register 00h -&gt; When cleared to 0, the oscillator is enabled and time starts incermenting</p>
+<p>Others have a 'OSF' Oscillator Stop Flag in Register 0Fh</p>
+<p>DS1307 has a 'CH' Clock Halt Bit in Register 00h -&gt; When cleared to 0, the oscillator is enabled and the time starts to increase</p>
 <p>Others have a 'OSF' Oscillator Stop Flag in Register 0Fh </p>
 
 </div>
